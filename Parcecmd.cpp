@@ -12,7 +12,14 @@ int parseCmdLine(int argc, char *argv[], pCallback p, void *userData){
 	int final,result=0,posible=0,error=false;
 	for (int i=1;i<argc;){
 		if (argv[i][0]=='-'){
-			posible=p(argv[i],argv[i+1],userData);
+			if (i+1>argc)
+				{
+				error=true;
+				i=argc;
+			}
+			else
+			{
+			posible=p(&(argv[i][1],argv[i+1],userData);
 			if (posible >=0){
 				i+=2;
 				result+=posible;
@@ -21,7 +28,7 @@ int parseCmdLine(int argc, char *argv[], pCallback p, void *userData){
 				error=true;
 				i=argc;
 			}
-			
+			}
 		}
 		else{
 			posible=p(NULL,argv[i],userData);
