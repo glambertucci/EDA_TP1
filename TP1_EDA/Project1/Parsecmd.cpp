@@ -1,16 +1,7 @@
 
 #include "parsecmd.h"
+#include "parsecallback.h"
 
-int Banco1(void)
-{
-	int a = 5;
-	char *arg[5] = { (char *) "parsecmd", (char *) "-Hola",(char *)"Soy",(char *)"Guido",(char *)"-KTNSIMIO" };
-	pCallback p = parseCallback;
-	a = parseCmdLine(a, arg, p, NULL);
-	printf("El resultado es: %d\n ", a);
-	getchar();
-	return 0;
-}
 int parseCmdLine(int argc, char *argv[], pCallback p, void *userData) {
 	int final = 0, result = 0, posible = 0, error = false;
 
@@ -18,8 +9,13 @@ int parseCmdLine(int argc, char *argv[], pCallback p, void *userData) {
 		if (argv[i][0] == '-') {
 			if ((i + 1) >= argc)
 			{
-				error = true;
-				i = argc;
+				error = ERROR1;
+
+			}
+			if (argv[i][1] == 0)
+			{
+				error = ERROR2;
+				i= argc;
 			}
 			else
 			{
@@ -29,7 +25,7 @@ int parseCmdLine(int argc, char *argv[], pCallback p, void *userData) {
 					result += posible;
 				}
 				else {
-					error = true;
+					error = ERROR3;
 					i = argc;
 				}
 			}
@@ -41,13 +37,17 @@ int parseCmdLine(int argc, char *argv[], pCallback p, void *userData) {
 				result += posible;
 			}
 			else {
-				error = true;
+				error = ERROR3;
 				i = argc;
 			}
 		}
 	}
-	if (error == true)
-		final = -1;
+	if (error == ERROR1)
+		final = ERROR1;
+	else if (error == ERROR2)
+		final = ERROR2;
+	else if (error == ERROR3)
+		final = ERROR3;
 	else
 		final = result;
 	return final;

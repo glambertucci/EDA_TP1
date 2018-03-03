@@ -1,3 +1,2 @@
-﻿  Source.cpp
-c:\users\guido\source\repos\project1\project1\source.cpp(55): warning C4805: '==': combinación no segura del tipo 'int' y el tipo 'bool' en la operación
-  Project1.vcxproj -> C:\Users\Guido\source\repos\Project1\Debug\Project1.exe
+﻿  Parsecmd.cpp
+  Project1.vcxproj -> C:\Users\Guido\source\repos\TP1_EDA\Debug\Project1.exe
