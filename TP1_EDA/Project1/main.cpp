@@ -6,7 +6,12 @@ int main(int argc, char ** argv)
 {
 	int result;
 	pCallback p = parseCallback;
-	result = parseCmdLine(argc, argv, p, NULL);
+	userData myinfo;
+	myinfo.key[0]   = (char*)"GUIDO";
+	myinfo.value[0] = (char*) "LAMBERTUCCI";
+	myinfo.key[0]   = (char*) "58009";
+
+	result = parseCmdLine(argc, argv, p, &myinfo);
 	if (result == ERROR1)
 		cout << "Error tipo 1, se ha ingresado una opcion sin valor" << endl;
 	else if (result == ERROR2)
