@@ -15,7 +15,6 @@ int parseCallback(char *key, char *value, void *userinfo)
 			val[i] = toupper(val[i]);
 			i++;
 		}
-		printf("%s\n", val);  //DEBUG
 
 		for (i = 0; i < NPARAMETERS; i++)
 		{
@@ -26,12 +25,12 @@ int parseCallback(char *key, char *value, void *userinfo)
 	}
 	else
 	{
+	
 		while (key[i])
 		{
 			ke[i] = toupper(ke[i]);
 			i++;
 		}
-		printf("%s\n", ke); //DEBUG
 
 		for (i = 0; i < NKEYS; i++)
 		{
@@ -42,16 +41,16 @@ int parseCallback(char *key, char *value, void *userinfo)
 
 		if (equal == 0)
 		{
+			i = 0;
 			while (val[i])
 			{
 				val[i] = toupper(val[i]);
 				i++;
 			}
-			printf("%s\n", val); //DEBUG
 
 			for (i = 0; i < NVALUES; i++)
 			{
-				equal = strcmp(val, ((userData*)userinfo)->key[i]); 
+				equal = strcmp(val, ((userData*)userinfo)->value[i]); 
 				if (equal == 0)
 					i = NVALUES;
 			}
@@ -60,6 +59,7 @@ int parseCallback(char *key, char *value, void *userinfo)
 
 	if (equal != 0)
 		equal = -1;
-
+	else
+		equal = 1;
 	return equal;
 }

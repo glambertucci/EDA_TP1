@@ -7,16 +7,17 @@ int parseCmdLine(int argc, char *argv[], pCallback p, void *userData) {
 
 	for (int i = 1; i<argc;) {
 		if (argv[i][0] == '-') { //Si el primer caracter es un - sera una opcion (opcion es clave+valor)
-			if ((i + 1) >= argc)
-			{
-				error = ERROR1; //si es el ultimo caracter obviamente no tiene valor
-
-			}
 			if (argv[i][1] == 0) //si pasan - solo
 			{
 				error = ERROR2;
-				i= argc;
+				i = argc;
 			}
+			else if ((i + 1) >= argc)
+			{
+				error = ERROR1; //si es el ultimo caracter obviamente no tiene valor
+				i++;
+			}
+			
 			else
 			{
 				posible = p(&(argv[i][1]), argv[i + 1], userData);

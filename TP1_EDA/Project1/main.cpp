@@ -10,11 +10,11 @@ int main(int argc, char ** argv)
 
 	//USAR MAYUSCULAS PARA LA BASE DE DATOS
 
-	myinfo.key[0]  = (char*)"KEY1";
+	myinfo.key[0]  = (char*)"GUIDO";
 	myinfo.key[1] = (char*)"KEY2";
 	myinfo.key[2] = (char*)"KEY3";
 
-	myinfo.value[0] = (char*) "VALUE1";
+	myinfo.value[0] = (char*) "LAMBERTUCCI";
 	myinfo.value[1] = (char*) "VALUE2";
 	myinfo.value[2] = (char*) "VALUE3";
 
@@ -28,11 +28,9 @@ int main(int argc, char ** argv)
 	else if (result == ERROR2)
 		cout << "Error tipo 2, se ha ingresado una opcion sin clave" << endl;
 	else if (result == ERROR3)
-		cout << "Los datos ingresados no corresponden con nuestra base de datos" << endl;
+		cout << "Error tipo 3, los datos ingresados no corresponden con nuestra base de datos" << endl;
 	else
 		cout << "Se han ingresado " << result << " argumentos" << endl;
-
-	getchar();
 
 	return 0;
 }
