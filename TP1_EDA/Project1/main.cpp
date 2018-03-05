@@ -7,9 +7,9 @@ int main(int argc, char ** argv)
 	int result;
 	pCallback p = parseCallback;
 	userData myinfo;
-	myinfo.key[0]   = (char*)"GUIDO";
+	myinfo.key[0]  = (char*)"GUIDO";
 	myinfo.value[0] = (char*) "LAMBERTUCCI";
-	myinfo.parameters[0]   = (char*) "58009";
+	myinfo.parameters[0]  = (char*) "58009";
 
 	result = parseCmdLine(argc, argv, p, &myinfo);
 	if (result == ERROR1)
