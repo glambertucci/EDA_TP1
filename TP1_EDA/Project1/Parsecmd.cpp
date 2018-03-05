@@ -6,13 +6,13 @@ int parseCmdLine(int argc, char *argv[], pCallback p, void *userData) {
 	int final = 0, result = 0, posible = 0, error = false;
 
 	for (int i = 1; i<argc;) {
-		if (argv[i][0] == '-') {
+		if (argv[i][0] == '-') { //Si el primer caracter es un - sera una opcion (opcion es clave+valor)
 			if ((i + 1) >= argc)
 			{
-				error = ERROR1;
+				error = ERROR1; //si es el ultimo caracter obviamente no tiene valor
 
 			}
-			if (argv[i][1] == 0)
+			if (argv[i][1] == 0) //si pasan - solo
 			{
 				error = ERROR2;
 				i= argc;
@@ -21,7 +21,7 @@ int parseCmdLine(int argc, char *argv[], pCallback p, void *userData) {
 			{
 				posible = p(&(argv[i][1]), argv[i + 1], userData);
 				if (posible >= 0) {
-					i += 2;
+					i += 2; //avanzo 2 parametros
 					result += posible;
 				}
 				else {
@@ -31,7 +31,7 @@ int parseCmdLine(int argc, char *argv[], pCallback p, void *userData) {
 			}
 		}
 		else {
-			posible = p(NULL, argv[i], userData);
+			posible = p(NULL, argv[i], userData); //si no es opcion es parametro
 			if (posible >= 0) {
 				i++;
 				result += posible;
@@ -44,7 +44,7 @@ int parseCmdLine(int argc, char *argv[], pCallback p, void *userData) {
 	}
 	if (error == ERROR1)
 		final = ERROR1;
-	else if (error == ERROR2)
+	else if (error == ERROR2)// reconoce el error
 		final = ERROR2;
 	else if (error == ERROR3)
 		final = ERROR3;

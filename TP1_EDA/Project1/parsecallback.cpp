@@ -4,7 +4,7 @@
 #include <stdio.h>
 int parseCallback(char *key, char *value, void *userinfo)
 {
-	int i = 0, equal;
+	/*int i = 0, equal;
 	char * val = value;
 	if (key == NULL)
 	{
@@ -15,5 +15,6 @@ int parseCallback(char *key, char *value, void *userinfo)
 		printf("%s\n", val);
 		equal = strcmp(val, ((userData*)userinfo)->parameters[0]);
 	}
-	return equal;
+	return equal;*/
+	return 1;
 }
