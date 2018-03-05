@@ -2,6 +2,7 @@
 #include <string.h>
 #include <fwpstypes.h>
 #include <stdio.h>
+
 int parseCallback(char *key, char *value, void *userinfo)
 {
 	int i = 0, equal = -1;
@@ -11,7 +12,8 @@ int parseCallback(char *key, char *value, void *userinfo)
 	{
 		while (val[i])
 		{
-			val[i] = toupper(val[i++]);
+			val[i] = toupper(val[i]);
+			i++;
 		}
 		printf("%s\n", val);  //DEBUG
 
@@ -20,15 +22,14 @@ int parseCallback(char *key, char *value, void *userinfo)
 			equal = strcmp(val, ((userData*)userinfo)->parameters[i]);
 			if (equal == 0)
 				i = NPARAMETERS;
-			else
-				equal = -1;
 		}
 	}
 	else
 	{
 		while (key[i])
 		{
-			ke[i] = toupper(ke[i++]);
+			ke[i] = toupper(ke[i]);
+			i++;
 		}
 		printf("%s\n", ke); //DEBUG
 
@@ -43,8 +44,10 @@ int parseCallback(char *key, char *value, void *userinfo)
 		{
 			while (val[i])
 			{
-				val[i] = toupper(val[i++]);
+				val[i] = toupper(val[i]);
+				i++;
 			}
+			printf("%s\n", val); //DEBUG
 
 			for (i = 0; i < NVALUES; i++)
 			{
@@ -54,5 +57,9 @@ int parseCallback(char *key, char *value, void *userinfo)
 			}
 		}
 	}
+
+	if (equal != 0)
+		equal = -1;
+
 	return equal;
 }
