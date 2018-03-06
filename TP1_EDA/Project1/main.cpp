@@ -10,13 +10,13 @@ int main(int argc, char ** argv)
 
 	//USAR MAYUSCULAS PARA LA BASE DE DATOS
 
-	myinfo.key[0]  = (char*)"GUIDO";
-	myinfo.key[1] = (char*)"KEY2";
-	myinfo.key[2] = (char*)"KEY3";
+	myinfo.key[0]  = (char*)"NOMBRE";	//se eligen que tipo de claves se van a 
+	myinfo.key[1] = (char*)"APELLIDO";
+	myinfo.key[2] = (char*)"LEGAJO";
 
-	myinfo.value[0] = (char*) "LAMBERTUCCI";
-	myinfo.value[1] = (char*) "VALUE2";
-	myinfo.value[2] = (char*) "VALUE3";
+	myinfo.value[0] = (char*) "GUIDO";
+	myinfo.value[1] = (char*) "MECHUDA";
+	myinfo.value[2] = (char*) "56209";
 
 	myinfo.parameters[0]  = (char*) "PARAMETER1";
 	myinfo.parameters[1] = (char*) "PARAMETER2";

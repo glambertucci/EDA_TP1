@@ -12,7 +12,7 @@ int parseCallback(char *key, char *value, void *userinfo)
 	{
 		while (val[i])
 		{
-			val[i] = toupper(val[i]);
+			val[i] = toupper(val[i]); //pasa todo a mayusculas para evitar problemas de mayusculas y minusculas
 			i++;
 		}
 

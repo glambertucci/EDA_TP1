@@ -1,0 +1,41 @@
+BANCO DE PRUEBAS PARA EL PROGRAMA:
+
+
+Si se ingresa por linea de comando la siguiente linea:
+
+		./TP1_EDA 
+
+imprimira: "se han ingresado 0 argumentos" esto quiere decir que cuando solo se ejecuta el programa tomara como que no se han ingresado ningun parametro
+
+//////////////////////////////////////// barra separadora /////////////////////////////////////////////
+
+Si se ingresa por linea de comando alguna de las siguientes lineas o con el mismo formato:
+
+
+		./TP1_EDA -nombre 
+		./TP1_EDA -apellido mechuda -legajo
+
+imprimira: "Error tipo 1, se ha ingresado una opcion sin valor".
+
+
+//////////////////////////////////////// barra separadora /////////////////////////////////////////////
+
+Si se ingresa por linea de comando alguna de las siguientes lineas o con el mismo formato:
+
+
+		./TP1_EDA -
+		./TP1_EDA - ariel
+		./TP1_EDA -nombre ariel -
+
+imprimira: "Error tipo 2, se ha ingresado una opcion sin clave".
+
+
+//////////////////////////////////////// barra separadora /////////////////////////////////////////////
+
+Si se ingresa por linea de comando alguna de las siguientes lineas o con el mismo formato:
+
+
+		./TP1_EDA -nombre 2547896
+		./TP1_EDA -nombre ariel -nota 8
+
+imprimira: "Error tipo 3, los datos ingresados no corresponden con nuestra base de datos". esto ocurre siempre y cuando se especifique que datos se encuentran en la base de datos
